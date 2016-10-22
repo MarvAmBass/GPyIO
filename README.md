@@ -1,2 +1,6 @@
-# raspberryGPyIO
-simple pure python - Raspberry Pi GPIO Library - single file
+# GPyIO
+simple pure python - GPIO Library - single file
+
+_fits perfectly for the raspberry pi_
+
+
