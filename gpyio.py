@@ -141,6 +141,7 @@ if __name__ == '__main__':
   if len(sys.argv) == 4:
     #eldo = Eldopy(int(sys.argv[1]))
     #eldo.send433Mhz(sys.argv[2],(sys.argv[3] == 'True'))
+    pass
   else:
     print("run this script with the following arguments:")
     #print("./eldopy.py gpioNumber AB440CodeString OnOffBoolean")
