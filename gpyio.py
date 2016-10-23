@@ -56,14 +56,14 @@ class GPyIO:
      if direction != GPyIO.IN and direction != GPyIO.OUT:
        raise ValueError("direction must be either GPyIO.IN or GPyIO.OUT")
 
-      directionFile = open("/sys/class/gpio/gpio" + str(self.gpio) + "/direction","w")
-      directionFile.write(direction)
-      self.direction = direction
-      try:
-        directionFile.close()
-      except:
-        #print("closing export direction failed")
-        pass
+     directionFile = open("/sys/class/gpio/gpio" + str(self.gpio) + "/direction","w")
+     directionFile.write(direction)
+     self.direction = direction
+     try:
+       directionFile.close()
+     except:
+       #print("closing export direction failed")
+       pass
 
 
 
