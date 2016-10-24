@@ -112,6 +112,7 @@ class GPyIO:
     for value in valuesString:
       self.digitalWrite(value)
       self.usleep(pulseLengthInMircoseconds)
+    self.digitalWrite(GPyIO.LOW)
 
 
 
