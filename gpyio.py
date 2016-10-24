@@ -131,7 +131,7 @@ class GPyIO:
     for i in range(repetitions):
       valuesString += str(self.digitalRead())
       self.usleep(pulseLengthInMircoseconds)
-    return valuesString
+    return valuesString.replace('\n', '')
 
 
 
