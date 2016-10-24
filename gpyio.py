@@ -150,7 +150,7 @@ class GPyIO:
     # backwards
     reversedCleanString = ""
     signalStarted = False
-    for value in reversed(valuesString):
+    for value in reversed(cleanFrontString):
       if not signalStarted:
         if value == "1":
             signalStarted = True
