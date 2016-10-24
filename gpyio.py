@@ -66,7 +66,33 @@ class GPyIO:
        pass
 
 
+    
+  def getActiveLow(self):
+    activeLowFileRO = open("/sys/class/gpio/gpio" + str(self.gpio) + "/active_low", "r")
+    activeLowRaw = activeLowFileRO.read()
+    if activeLowRaw == "0":
+      return False
+    elif activeLowRaw == "1":
+      return True
+    else:
+      raise ValueError("unknown active_low value")
 
+      
+      
+  def setActiveLow(self, activeLow):
+    activeLowFile = open("/sys/class/gpio/gpio" + str(self.gpio) + "/active_low", "w")
+    if activeLow:
+      activeLowFile.write("1")
+    else:
+      activeLowFile.write("0")
+      
+    try:
+      activeLowFile.close()
+    except:
+      pass
+
+    
+    
   def usleep(self, microseconds):
     sleep(microseconds / 1000000.0)
 
