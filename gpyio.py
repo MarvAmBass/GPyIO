@@ -18,22 +18,23 @@ class GPyIO:
 
 
   def __init__(self, gpio):
-    self.gpio = gpio
+    if gpio > 0:
+      self.gpio = gpio
 
-    if not path.isdir("/sys/class/gpio/gpio" + str(self.gpio)):
-      exportFile = open("/sys/class/gpio/export","w")
-      exportFile.write(str(self.gpio))
-      try:
-        exportFile.close()
-      except:
-        #print("closing export filehandle failed")
-        pass
+      if not path.isdir("/sys/class/gpio/gpio" + str(self.gpio)):
+        exportFile = open("/sys/class/gpio/export","w")
+        exportFile.write(str(self.gpio))
+        try:
+          exportFile.close()
+        except:
+          #print("closing export filehandle failed")
+          pass
 
-    self.direction = self.getDirection()
-    if self.direction is None:
-      self.setDirection(GPyIO.OUT)
+      self.direction = self.getDirection()
+      if self.direction is None:
+        self.setDirection(GPyIO.OUT)
 
-    self.digitalWrite(GPyIO.LOW)
+      self.digitalWrite(GPyIO.LOW)
 
 
   def getDirection(self):
