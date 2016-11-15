@@ -18,7 +18,7 @@ class GPyIO:
 
 
   def __init__(self, gpio):
-    if gpio > 0:
+    if gpio >= 0:
       self.gpio = gpio
 
       if not path.isdir("/sys/class/gpio/gpio" + str(self.gpio)):
